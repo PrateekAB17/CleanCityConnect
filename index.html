@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCityConnect - Waste Management System Bengaluru</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CleanCityConnect</h1>
+        <p>Waste Management System Bengaluru</p>
+    </header>
+
+    <main class="login-container">
+        <div class="login-types">
+            <h2>Select Login Type</h2>
+            
+            <div class="login-cards">
+                <div class="login-card" onclick="showLogin('govt')">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Government</h3>
+                    <p>Access ward ratings and management</p>
+                </div>
+                
+                <div class="login-card" onclick="showLogin('ward')">
+                    <div class="card-icon">👷</div>
+                    <h3>Ward Member</h3>
+                    <p>Track garbage collection progress</p>
+                </div>
+                
+                <div class="login-card" onclick="showLogin('resident')">
+                    <div class="card-icon">🏠</div>
+                    <h3>Resident</h3>
+                    <p>View ward details and submit complaints</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Government Login Form -->
+        <div id="govt-login" class="login-form hidden">
+            <h2>Government Login</h2>
+            <form onsubmit="handleLogin(event, 'govt')">
+                <input type="text" id="govt-username" placeholder="Username" required>
+                <input type="password" id="govt-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <button type="button" onclick="backToMain()">Back</button>
+            </form>
+        </div>
+
+        <!-- Ward Member Login Form -->
+        <div id="ward-login" class="login-form hidden">
+            <h2>Ward Member Login</h2>
+            <form onsubmit="handleLogin(event, 'ward')">
+                <input type="text" id="ward-username" placeholder="Username" required>
+                <input type="password" id="ward-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <button type="button" onclick="backToMain()">Back</button>
+            </form>
+        </div>
+
+        <!-- Resident Login Form -->
+        <div id="resident-login" class="login-form hidden">
+            <h2>Resident Login</h2>
+            <form onsubmit="handleLogin(event, 'resident')">
+                <input type="text" id="resident-username" placeholder="Username" required>
+                <input type="password" id="resident-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <button type="button" onclick="backToMain()">Back</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ward Member Dashboard - CleanCityConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ward Member Dashboard</h1>
+        <p>Garbage Collection Tracking</p>
+    </header>
+
+    <main class="dashboard">
+        <div class="dashboard-header">
+            <h2>Collection Status Management</h2>
+            <button class="logout-btn" onclick="window.location.href='index.html'">Back to Login</button>
+        </div>
+        
+        <div class="assignable-points">
+            <h3>Update Garbage Collection Status</h3>
+            <div class="point-item">
+                <span>🚶 Worker Arrived</span>
+                <button class="point-toggle inactive" id="worker-arrived" onclick="togglePoint('worker-arrived')">
+                    Not Arrived
+                </button>
+            </div>
+            <div class="point-item">
+                <span>🗑️ Garbage Collected</span>
+                <button class="point-toggle inactive" id="garbage-collected" onclick="togglePoint('garbage-collected')">
+                    Not Collected
+                </button>
+            </div>
+            <div class="point-item">
+                <span>🚮 Garbage Left</span>
+                <button class="point-toggle active" id="garbage-left" onclick="togglePoint('garbage-left')">
+                    Yes
+                </button>
+            </div>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h3>Today's Summary</h3>
+                <p><strong>Collections Scheduled:</strong> 12</p>
+                <p><strong>Collections Completed:</strong> 8</p>
+                <p><strong>Pending Collections:</strong> 4</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Worker Information</h3>
+                <p><strong>Assigned Worker:</strong> Ravi Kumar</p>
+                <p><strong>Contact:</strong> +91 98765 43210</p>
+                <p><strong>Vehicle:</strong> KA-01-AB-1234</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Instructions</h3>
+                <p>Update the status as the garbage collection progresses:</p>
+                <ul style="margin-top: 1rem; padding-left: 1rem;">
+                    <li>Mark "Worker Arrived" when collection begins</li>
+                    <li>Mark "Garbage Collected" when pickup is complete</li>
+                    <li>Update "Garbage Left" if any waste remains</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function togglePoint(pointId) {
+            const button = document.getElementById(pointId);
+            const isActive = button.classList.contains('active');
+            
+            if (isActive) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                
+                switch(pointId) {
+                    case 'worker-arrived':
+                        button.textContent = 'Not Arrived';
+                        break;
+                    case 'garbage-collected':
+                        button.textContent = 'Not Collected';
+                        break;
+                    case 'garbage-left':
+                        button.textContent = 'No';
+                        break;
+                }
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                
+                switch(pointId) {
+                    case 'worker-arrived':
+                        button.textContent = 'Arrived';
+                        break;
+                    case 'garbage-collected':
+                        button.textContent = 'Collected';
+                        break;
+                    case 'garbage-left':
+                        button.textContent = 'Yes';
+                        break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
